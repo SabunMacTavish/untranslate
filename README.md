@@ -2,11 +2,11 @@
 
 A small Mac menu-bar app that puts Chinese, Japanese and Korean songs in Apple Music back to their original names.
 
-If you use Apple Music in an English-language country (US, UK, Singapore, Malaysia, Australia…), Apple shows many Asian songs with English translations or romanized names: 周杰倫's 晴天 becomes "Sunny Day" by "Jay Chou", 잔나비's 주저하는 연인들을 위해 becomes "For Lovers Who Hesitate" by "JANNABI", サカナクション's 夜の踊り子 becomes "Yoru No Odoriko". There's no setting to turn this off. Untranslate fixes it:
+If you use Apple Music in an English-language country (US, UK, Singapore, Malaysia, Australia…), Apple shows many Asian songs with English translations or romanized names: 周杰倫's 晴天 becomes "Sunny Day" by "Jay Chou", 잔나비's 주저하는 연인들을 위해 becomes "For Lovers Who Hesitate" by "JANNABI", サカナクション's 夜の踊り子 becomes "Yoru No Odoriko". There's no setting to turn this off, and Apple Music's own search shows the translated names too. Untranslate fixes your library and gives you a search that doesn't translate:
 
 - **Fix names**: scans your library and playlists, shows every change in a list you can untick, then renames the songs in the Music app. Changes sync to your iPhone and other devices through Sync Library.
 - **Rename new songs automatically** (optional): songs you add later get their original names a minute or so after they arrive.
-- **Search** from anywhere with **⌘⇧M** (or from the menu bar): search Apple Music and see results with their original names, with ↑/↓ and Return to open one in Music. The shortcut can be turned off in Settings.
+- **Search in your own language**: press **⌘⇧M** anywhere (or use the menu bar) and search Apple Music in Chinese, Japanese, Korean or English. Results come back in the original language: 晴天 shows 晴天 by 周杰倫, 잔나비 shows 주저하는 연인들을 위해, 夜の踊り子 shows サカナクション, not the English versions. Use ↑/↓ and Return to open one in Music. The shortcut can be turned off in Settings.
 - **Undo**: every rename is logged and can be put back.
 
 Titles, albums and artist names can each be switched off in Settings.
@@ -39,6 +39,7 @@ Nothing about you or your library is sent anywhere except song IDs to Apple's ow
 - Japanese songs that Apple only lists in romanized form stay romanized.
 - A few songs have Chinese names in the Hong Kong store that are translations themselves; you can untick them in the preview.
 - Apple's catalog allows about 20 requests a minute, so a first scan of a big library takes a few minutes.
+- Clicking a search result opens Apple's own page in Music, which still uses Apple's English names.
 
 ## Build from source
 
