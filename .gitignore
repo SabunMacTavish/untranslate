@@ -1,0 +1,7 @@
+.build/
+.swiftpm/
+build/
+.DS_Store
+# personal library data from the prototype
+prototype/*.tsv
+*.log
