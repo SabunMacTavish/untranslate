@@ -600,7 +600,7 @@ struct SettingsView: View {
                     .font(.caption).foregroundStyle(.secondary)
             }
             Section {
-                Toggle("⌘⇧M opens search from anywhere", isOn: Binding(get: { model.searchShortcut }, set: { model.searchShortcut = $0 }))
+                Toggle("⌘⇧M opens Spotlight-style music search", isOn: Binding(get: { model.searchShortcut }, set: { model.searchShortcut = $0 }))
                 if let e = model.shortcutError { Text(e).font(.caption).foregroundStyle(.red) }
             }
             Section("Rename") {

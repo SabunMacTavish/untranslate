@@ -10,7 +10,7 @@ If you use Apple Music in an English-language country (US, UK, Singapore, Malays
 
 - **Fix names**: scans your library and playlists, shows every change in a list you can untick, then renames the songs in the Music app. Changes sync to your iPhone and other devices through Sync Library.
 - **Rename new songs automatically** (optional): songs you add later get their original names a minute or so after they arrive.
-- **Search in your own language**: press **⌘⇧M** anywhere (or use the menu bar) and search Apple Music in Chinese, Japanese, Korean or English. Results come back in the original language: 晴天 shows 晴天 by 周杰倫, 잔나비 shows 주저하는 연인들을 위해, 夜の踊り子 shows サカナクション, not the English versions. Use ↑/↓ and Return to open one in Music. The shortcut can be turned off in Settings.
+- **Spotlight-style music search**: press **⌘⇧M** anywhere (or use the menu bar) and search Apple Music in Chinese, Japanese, Korean or English. Results come back in the original language: 晴天 shows 晴天 by 周杰倫, 잔나비 shows 주저하는 연인들을 위해, 夜の踊り子 shows サカナクション, not the English versions. Use ↑/↓ and Return to open one in Music. The shortcut can be turned off in Settings.
 - **Undo**: every rename is logged and can be put back.
 
 Titles, albums and artist names can each be switched off in Settings.
