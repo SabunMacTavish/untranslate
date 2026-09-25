@@ -111,6 +111,13 @@ func selfTest() throws {
     let bts = rows(Planner.plan([tracks[8], track(12, "Spring Day", "You Never Walk Alone", "BTS")], b, knownArtists: [:]))
     expect(bts.contains("9 artist BTS -> 방탄소년단") && bts.contains("12 name Spring Day -> 봄날"), "Korean artist name \(bts)")
 
+    // Songs only in playlists keep their album and album artist (renaming them makes Music freeze later),
+    // but still get their title and artist renamed.
+    let playlistOnly = rows(Planner.plan([tracks[0]], a, knownArtists: [:], inLibrary: []))
+    expect(playlistOnly == ["1 name Sunny Day -> 晴天", "1 artist Jay Chou -> 周杰倫"], "playlist-only \(playlistOnly)")
+    let inLib = rows(Planner.plan([tracks[0]], a, knownArtists: [:], inLibrary: ["1"]))
+    expect(inLib.contains("1 album Yeh, Hwei-Mei -> 葉惠美") && inLib.contains("1 albumArtist Jay Chou -> 周杰倫"), "library song \(inLib)")
+
     // Earlier renames steer new songs, even English-titled ones.
     let known = rows(Planner.plan([track(20, "Mojito", "Mojito - Single", "Jay Chou")], Answers(), knownArtists: ["Jay Chou": "周杰倫"]))
     expect(known == ["20 artist Jay Chou -> 周杰倫", "20 albumArtist Jay Chou -> 周杰倫"], "known artists \(known)")

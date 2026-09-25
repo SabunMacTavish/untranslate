@@ -61,7 +61,11 @@ public enum Planner {
     }
 
     /// Every rename worth making. `knownArtists` (old -> new, from earlier runs) keeps artist names consistent.
-    public static func plan(_ tracks: [Track], _ a: Answers, knownArtists: [String: String] = [:]) -> [Change] {
+    /// `inLibrary` (persistent IDs of songs in the library itself): songs that are only in playlists keep their
+    /// album and album artist. Renaming those makes Music create album entries it never links to iCloud, and it
+    /// then reprocesses all of them on every library change, which freezes it.
+    public static func plan(_ tracks: [Track], _ a: Answers, knownArtists: [String: String] = [:],
+                            inLibrary: Set<String>? = nil) -> [Change] {
         var changes: [Change] = [], cjkArtists = Set<String>()
         var votes: [String: (home: [String], rest: [String])] = [:]
         for t in tracks where t.genre != "Classical" {  // works get retitled in every market's language
@@ -85,7 +89,8 @@ public enum Planner {
         for t in tracks { for f in artistFields {
             if let cur = t.values[f], let v = renamed[cur], v != cur { changes.append(Change(pid: t.pid, field: f, old: cur, new: v)) }
         } }
-        return changes
+        guard let inLibrary else { return changes }
+        return changes.filter { inLibrary.contains($0.pid) || ($0.field != .album && $0.field != .albumArtist) }
     }
 
     /// Most frequent value; ties go to whichever came first.

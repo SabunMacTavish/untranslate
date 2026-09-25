@@ -529,7 +529,7 @@ struct FixView: View {
     private var intro: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Put songs back to their original names").font(.title2)
-            Text("Apple Music shows Chinese, Japanese and Korean songs with English or romanized names in English-language stores. This app looks up how Apple's Hong Kong, China, Japan and Korea stores name each song in your library and playlists, then shows you every change before making it.")
+            Text("Apple Music shows Chinese, Japanese and Korean songs with English or romanized names in English-language stores. This app looks up how Apple's Hong Kong, China, Japan and Korea stores name each song in your library and playlists, then shows you every change before making it. Songs that are only in your playlists keep their album names, because Music can't sync those renamed.")
                 .fixedSize(horizontal: false, vertical: true)
             Text("Nothing changes until you press Rename. Scanning a big library takes a few minutes because Apple limits how fast its catalog can be asked.")
                 .foregroundStyle(.secondary)

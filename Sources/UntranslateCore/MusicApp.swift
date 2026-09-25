@@ -37,6 +37,12 @@ public enum MusicApp {
         _ = try osascript(["-e", mergeAppleScript, album, albumArtist])
     }
 
+    /// Persistent IDs of the songs in the library itself, not the ones that are only in playlists.
+    public static func librarySongs() throws -> Set<String> {
+        let out = try osascript(["-l", "JavaScript", "-e", "JSON.stringify(Application('Music').libraryPlaylists[0].tracks.persistentID())"])
+        return Set(try JSONSerialization.jsonObject(with: Data(out.utf8)) as? [String] ?? [])
+    }
+
     static func osascript(_ args: [String]) throws -> String {
         let p = Process()
         p.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
@@ -63,7 +69,9 @@ public enum MusicApp {
         p.tracks.persistentID().forEach((pid, i) => { if (!(pid in where)) where[pid] = [p, tids[i]]; });
       }
       const out = {done: 0, skipped: []};
+      let n = 0;
       for (const [pid, prop, from, to] of rows) {
+        if (++n % 50 === 0) delay(1);  // let Music catch up instead of flooding it
         if (!(pid in where)) { out.skipped.push(`${pid}: no longer in Music`); continue; }
         const t = where[pid][0].tracks.byId(where[pid][1]);
         const now = t[prop]();

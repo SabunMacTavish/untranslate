@@ -16,7 +16,9 @@ public enum Untranslator {
             }
             switch store { case "hk": a.hk = found; case "cn": a.cn = found; case "jp": a.jp = found; default: a.kr = found }
         }
-        return Planner.plan(tracks, a, knownArtists: knownArtists).filter { fields.contains($0.field) }
+        progress("Checking which songs are in your library…")
+        let inLibrary = try MusicApp.librarySongs()
+        return Planner.plan(tracks, a, knownArtists: knownArtists, inLibrary: inLibrary).filter { fields.contains($0.field) }
     }
 
     /// The song IDs come from an undocumented file. Before trusting them, check a sample against Apple's
