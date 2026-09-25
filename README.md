@@ -2,6 +2,8 @@
 
 A small Mac menu-bar app that puts Chinese, Japanese and Korean songs in Apple Music back to their original names.
 
+> **⚠️ Early alpha: use at your own risk.** Untranslate renames songs in your Apple Music library, and the changes sync to all your devices. Known issue: renaming the albums of songs that are only in playlists (not added to your library) can make the Music app freeze whenever your library changes. Try it on a few songs first.
+
 If you use Apple Music in an English-language country (US, UK, Singapore, Malaysia, Australia…), Apple shows many Asian songs with English translations or romanized names: 周杰倫's 晴天 becomes "Sunny Day" by "Jay Chou", 잔나비's 주저하는 연인들을 위해 becomes "For Lovers Who Hesitate" by "JANNABI", サカナクション's 夜の踊り子 becomes "Yoru No Odoriko". There's no setting to turn this off, and Apple Music's own search shows the translated names too. Untranslate fixes your library and gives you a search that doesn't translate:
 
 - **Fix names**: scans your library and playlists, shows every change in a list you can untick, then renames the songs in the Music app. Changes sync to your iPhone and other devices through Sync Library.
